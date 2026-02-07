@@ -1,0 +1,23 @@
+<div class="bg-containerDiv2 p-6 rounded-2xl shadow-md mb-6">
+  <h2 class="text-2xl font-bold text-center mb-4 text-primary">
+    Crear WithOut
+  </h2>
+
+  <form (ngSubmit)="onSubmit()" class="flex gap-3">
+    <input
+      type="text"
+      [(ngModel)]="habitName"
+      name="habitName"
+      placeholder="Ej: Días sin fumar"
+      class="flex-1 px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-primary focus:outline-none transition-colors placeholder:text-text/50"
+      maxlength="50"
+    />
+    <button
+      type="submit"
+      [disabled]="!habitName.trim()"
+      class="bg-green text-white px-6 py-3 rounded-lg font-bold hover:opacity-90 transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+    >
+      Crear
+    </button>
+  </form>
+</div>
