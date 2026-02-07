@@ -6,5 +6,6 @@ import { GamesPage } from './modules/games/pages/games-page/games-page';
 export const routes: Routes = [
     { path: 'pomodoro', component: PomodoroPage},
     { path: 'habits', component: HabitsPage},
-    { path: 'games', component: GamesPage},  
+    { path: 'games', component: GamesPage},
+    { path: '', redirectTo: 'pomodoro', pathMatch: 'full' },
 ];
