@@ -54,7 +54,7 @@
     @for (preset of presets; track preset.label) {
       <div
         (click)="selectPreset(preset)"
-        class="bg-[#F0EEE2] p-4 rounded-2xl flex items-center justify-between cursor-pointer border-2 transition-all hover:bg-white"
+        class="bg-containerDiv2 p-4 rounded-2xl flex items-center justify-between cursor-pointer border-2 transition-all hover:bg-white"
         [ngClass]="
           selectedPreset === preset
             ? 'border-green shadow-md'
