@@ -1,2 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
+
+
+@theme {
+  --color-primary: #6B2737; /* rojo */
+  --color-secondary: #FFFDE0; /* amarillo claro */
+  --color-text: #1F1F1F; /* negro */
+  --color-text2: #D9E5D6;
+  --color-green: #A29F15; /* verde */
+  --color-navbarActive: #E08E45; /* naranja */
+  --color-navbarInactive: #461F29; /* rojo oscuro */
+  --color-containerDiv: #D8D7C3;
+}
+
+body {
+  font-family: system-ui, -apple-system, 'Work Sans', sans-serif;
+  background-color: #FFFDE0; /* color-secondary como fondo global */
+  color: #1F1F1F; /* color-text */
+}
+a.active {
+  background-color: var(--color-navbarActive);
+}
