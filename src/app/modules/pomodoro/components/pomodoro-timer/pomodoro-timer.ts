@@ -20,7 +20,7 @@ export class PomodoroTimer implements OnDestroy {
     { work: 25, break: 5, label: '25/5' },
     { work: 50, break: 10, label: '50/10' },
     { work: 15, break: 3, label: '15/3' },
-    { work: 1, break: 2, label: '10/2' },
+    { work: 10, break: 2, label: '10/2' },
   ];
 
   selectedPreset: PomodoroPreset = this.presets[0];
