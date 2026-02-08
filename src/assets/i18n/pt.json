@@ -1,0 +1,59 @@
+{
+  "nav": {
+    "pomodoro": "Pomodoro",
+    "habits": "Hábitos",
+    "games": "MiniGames"
+  },
+  "header": {
+    "title": "Você consegue!"
+  },
+  "habits": {
+    "createTitle": "Criar WithOut",
+    "createButton": "Criar",
+    "placeholder": "Ex: Dias sem fumar",
+    "relapseButton": "Recaída",
+    "deleteButton": "Excluir",
+    "days": "dias",
+    "day": "dia",
+    "hours": "h",
+    "minutes": "m",
+    "emptyTitle": "Você ainda não tem hábitos",
+    "emptyMessage": "Crie seu primeiro \"WithOut\" para começar a rastrear seu progresso",
+    "confirmRelapse": "Tem certeza de que deseja reiniciar \"{{name}}\"?",
+    "confirmDelete": "Tem certeza de que deseja excluir \"{{name}}\"?",
+    "notification": {
+      "title": "Parabéns! 🎉",
+      "body": "Você está há {{days}} dias sem {{habit}}. Continue assim!"
+    }
+  },
+  "info": {
+    "title": "Sobre DayWithout",
+    "subtitle": "Seu companheiro para construir melhores hábitos e manter o foco.",
+    "installButton": "Instalar Aplicativo",
+    "pomodoro": {
+      "title": "Pomodoro",
+      "description": "Gerencie seu tempo com a técnica Pomodoro. Trabalhe em blocos de foco e faça pausas para maximizar sua produtividade sem se esgotar."
+    },
+    "habits": {
+      "title": "Hábitos",
+      "description": "Rastreie seus dias sem maus hábitos. Mantenha a sequência e visualize seu progresso dia a dia para se manter motivado."
+    },
+    "games": {
+      "title": "MiniGames",
+      "description": "Distraia-se da ansiedade com jogos rápidos e simples projetados para redirecionar sua atenção em momentos difíceis."
+    }
+  },
+  "pomodoro": {
+    "work": "Trabalho",
+    "break": "Pausa",
+    "notification": {
+      "workDone": "Hora do intervalo!",
+      "breakDone": "Hora de trabalhar!",
+      "workBody": "Você completou sua sessão de foco. Faça uma pausa.",
+      "breakBody": "A pausa acabou. É hora de voltar ao foco."
+    }
+  },
+  "games": {
+    "soon": "Em breve..."
+  }
+}

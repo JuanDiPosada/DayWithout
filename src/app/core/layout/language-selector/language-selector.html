@@ -1,0 +1,42 @@
+<div class="relative">
+  <!-- Current Language Button -->
+  <button
+    (click)="toggleDropdown()"
+    class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-navbarInactive/20 transition-colors"
+  >
+    <span class="text-2xl">{{ currentLanguage.flag }}</span>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="size-4 text-white transition-transform"
+      [class.rotate-180]="isOpen"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="m19.5 8.25-7.5 7.5-7.5-7.5"
+      />
+    </svg>
+  </button>
+
+  <!-- Dropdown Menu -->
+  @if (isOpen) {
+    <div
+      class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border-2 border-gray-200 overflow-hidden z-50"
+    >
+      @for (lang of languages; track lang.code) {
+        <button
+          (click)="selectLanguage(lang)"
+          class="w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-100 transition-colors text-left"
+          [class.bg-secondary]="lang.code === currentLanguage.code"
+        >
+          <span class="text-2xl">{{ lang.flag }}</span>
+          <span class="text-text font-medium">{{ lang.name }}</span>
+        </button>
+      }
+    </div>
+  }
+</div>

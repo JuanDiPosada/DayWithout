@@ -1,0 +1,59 @@
+{
+  "nav": {
+    "pomodoro": "Pomodoro",
+    "habits": "Habits",
+    "games": "MiniGames"
+  },
+  "header": {
+    "title": "You can do it!"
+  },
+  "habits": {
+    "createTitle": "Create WithOut",
+    "createButton": "Create",
+    "placeholder": "E.g.: Days without smoking",
+    "relapseButton": "Relapse",
+    "deleteButton": "Delete",
+    "days": "days",
+    "day": "day",
+    "hours": "h",
+    "minutes": "m",
+    "emptyTitle": "You don't have any habits yet",
+    "emptyMessage": "Create your first \"WithOut\" to start tracking your progress",
+    "confirmRelapse": "Are you sure you want to reset \"{{name}}\"?",
+    "confirmDelete": "Are you sure you want to delete \"{{name}}\"?",
+    "notification": {
+      "title": "Congratulations! 🎉",
+      "body": "You've been {{days}} days without {{habit}}. Keep it up!"
+    }
+  },
+  "info": {
+    "title": "About DayWithout",
+    "subtitle": "Your companion to build better habits and stay focused.",
+    "installButton": "Install App",
+    "pomodoro": {
+      "title": "Pomodoro",
+      "description": "Manage your time with the Pomodoro technique. Work in focus blocks and take breaks to maximize your productivity without burning out."
+    },
+    "habits": {
+      "title": "Habits",
+      "description": "Track your days without bad habits. Keep the streak and visualize your progress day by day to stay motivated."
+    },
+    "games": {
+      "title": "MiniGames",
+      "description": "Distract yourself from anxiety with quick and simple games designed to redirect your attention in difficult moments."
+    }
+  },
+  "pomodoro": {
+    "work": "Work",
+    "break": "Break",
+    "notification": {
+      "workDone": "Break time!",
+      "breakDone": "Time to work!",
+      "workBody": "You've completed your focus session. Take a breather.",
+      "breakBody": "Break is over. Time to get back to focus."
+    }
+  },
+  "games": {
+    "soon": "Coming soon..."
+  }
+}
