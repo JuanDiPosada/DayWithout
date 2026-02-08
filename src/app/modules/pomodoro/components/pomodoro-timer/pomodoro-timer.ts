@@ -1,5 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 interface PomodoroPreset {
   work: number;
@@ -10,7 +11,7 @@ interface PomodoroPreset {
 @Component({
   selector: 'app-pomodoro-timer',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './pomodoro-timer.html',
   styleUrl: './pomodoro-timer.css',
 })

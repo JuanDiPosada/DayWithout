@@ -44,14 +44,20 @@
     }
   },
   "pomodoro": {
-    "work": "Trabajo",
+    "work": "Tiempo",
     "break": "Descanso",
+    "focus": "Enfocate",
     "notification": {
       "workDone": "¡Tiempo de descanso!",
       "breakDone": "¡A trabajar!",
       "workBody": "Has completado tu sesión de enfoque. Tómate un respiro.",
       "breakBody": "El descanso ha terminado. Es hora de volver a enfocarse."
-    }
+    },
+    "start": "Empezar",
+    "pause": "Pausar",
+    "stop": "Finalizar",
+    "active": "Activado",
+    "inactive": "Desactivado"
   },
   "games": {
     "soon": "Próximamente..."

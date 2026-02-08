@@ -1,11 +1,12 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-habit-form',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, TranslateModule, FormsModule],
   templateUrl: './habit-form.html',
   styleUrl: './habit-form.css',
 })

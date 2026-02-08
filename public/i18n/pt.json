@@ -36,7 +36,7 @@
     },
     "habits": {
       "title": "Hábitos",
-      "description": "Rastreie seus dias sem maus hábitos. Mantenha a sequência e visualize seu progresso dia a dia para se manter motivado."
+      "description": "Rastreie seus dias sem maus hábitos. Mantenha a sequência e visualize seu progresso dia a dia para se manter motivado. te quiero pendejo"
     },
     "games": {
       "title": "MiniGames",
@@ -44,14 +44,20 @@
     }
   },
   "pomodoro": {
-    "work": "Trabalho",
+    "work": "Tempo",
     "break": "Pausa",
+    "focus": "Foco",
     "notification": {
       "workDone": "Hora do intervalo!",
       "breakDone": "Hora de trabalhar!",
       "workBody": "Você completou sua sessão de foco. Faça uma pausa.",
       "breakBody": "A pausa acabou. É hora de voltar ao foco."
-    }
+    },
+    "start": "Começar",
+    "pause": "Pausar",
+    "stop": "Parar",
+    "active": "Ativo",
+    "inactive": "Inativo"
   },
   "games": {
     "soon": "Em breve..."

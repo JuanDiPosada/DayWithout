@@ -4,7 +4,9 @@
     class="w-full rounded-3xl p-8 flex flex-col items-center relative overflow-hidden bg-[radial-gradient(circle,_rgba(255,255,255,0.1)_0%,_rgba(0,0,0,0.3)_100%)]"
   >
     <!-- Header Decorativo (opcional) -->
-    <div class="absolute top-4 left-6 text-gray-500 font-medium">tiempo</div>
+    <div class="absolute top-4 left-6 text-gray-500 font-medium">
+      {{ "pomodoro.work" | translate }}
+    </div>
 
     <!-- Timer Text -->
     <div class="text-8xl font-bold text-text mt-4 tracking-tight font-mono">
@@ -20,7 +22,11 @@
           : 'bg-green/10 text-green'
       "
     >
-      {{ mode === "work" ? "Enfóctate" : "Descansa" }}
+      {{
+        mode === "work"
+          ? ("pomodoro.focus" | translate)
+          : ("pomodoro.break" | translate)
+      }}
     </div>
   </div>
 
@@ -31,20 +37,20 @@
         (click)="startTimer()"
         class="bg-green hover:bg-green/90 text-white font-bold py-3 px-12 rounded-xl text-xl shadow-md transition-transform active:scale-95 w-48"
       >
-        Empezar
+        {{ "pomodoro.start" | translate }}
       </button>
     } @else {
       <button
         (click)="pauseTimer()"
         class="bg-green hover:bg-green/90 text-white font-bold py-3 px-12 rounded-xl text-xl shadow-md transition-transform active:scale-95 w-48 mb-2"
       >
-        Pausar
+        {{ "pomodoro.pause" | translate }}
       </button>
       <button
         (click)="stopTimer()"
         class="bg-navbarInactive hover:bg-navbarInactive/90 text-white font-bold py-2 px-8 rounded-lg text-sm shadow-sm transition-transform active:scale-95"
       >
-        Finalizar
+        {{ "pomodoro.stop" | translate }}
       </button>
     }
   </div>
@@ -86,12 +92,12 @@
         @if (selectedPreset === preset) {
           <span
             class="bg-green text-white px-4 py-1 rounded-lg font-bold text-sm"
-            >activado</span
+            >{{ "pomodoro.active" | translate }}</span
           >
         } @else {
           <span
             class="bg-[#D1D1C6] text-[#9CA3AF] px-4 py-1 rounded-lg font-bold text-sm"
-            >Desactivado</span
+            >{{ "pomodoro.inactive" | translate }}</span
           >
         }
       </div>

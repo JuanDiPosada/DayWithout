@@ -28,18 +28,23 @@ export class LanguageSelector implements OnInit {
   constructor(private translate: TranslateService) {}
 
   ngOnInit(): void {
-    // Get saved language or detect browser language
-    const savedLang = localStorage.getItem('dayWithout_language');
-    const browserLang = this.translate.getBrowserLang();
+    try {
+      // Get saved language or detect browser language
+      const savedLang = localStorage.getItem('dayWithout_language');
+      const browserLang = this.translate.getBrowserLang();
 
-    let langCode = savedLang || browserLang || 'es';
+      let langCode = savedLang || browserLang || 'es';
 
-    // Ensure we support the language
-    if (!['es', 'en', 'pt'].includes(langCode)) {
-      langCode = 'es';
+      // Ensure we support the language
+      if (!['es', 'en', 'pt'].includes(langCode)) {
+        langCode = 'es';
+      }
+
+      this.setLanguage(langCode);
+    } catch (error) {
+      console.error('Error initializing language selector:', error);
+      this.setLanguage('es');
     }
-
-    this.setLanguage(langCode);
   }
 
   toggleDropdown(): void {

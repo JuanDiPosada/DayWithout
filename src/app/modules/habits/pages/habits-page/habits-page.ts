@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 import { HabitsService } from '../../services/habits.service';
 import { Habit } from '../../../../core/models/habit.model';
 import { HabitCard } from '../../components/habit-card/habit-card';
@@ -8,7 +9,7 @@ import { HabitForm } from '../../components/habit-form/habit-form';
 @Component({
   selector: 'app-habits-page',
   standalone: true,
-  imports: [CommonModule, HabitCard, HabitForm],
+  imports: [CommonModule, HabitCard, HabitForm, TranslateModule],
   templateUrl: './habits-page.html',
   styleUrl: './habits-page.css',
 })

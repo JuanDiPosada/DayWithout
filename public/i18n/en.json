@@ -44,14 +44,20 @@
     }
   },
   "pomodoro": {
-    "work": "Work",
+    "work": "Time",
     "break": "Break",
+    "focus": "Focus",
     "notification": {
       "workDone": "Break time!",
       "breakDone": "Time to work!",
       "workBody": "You've completed your focus session. Take a breather.",
       "breakBody": "Break is over. Time to get back to focus."
-    }
+    },
+    "start": "Start",
+    "pause": "Pause",
+    "stop": "Stop",
+    "active": "Active",
+    "inactive": "Inactive"
   },
   "games": {
     "soon": "Coming soon..."

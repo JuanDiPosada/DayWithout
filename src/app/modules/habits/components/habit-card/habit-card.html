@@ -10,7 +10,11 @@
       {{ elapsedTime.days }}
     </div>
     <div class="text-sm text-text mb-3">
-      {{ elapsedTime.days === 1 ? "día" : "días" }}
+      {{
+        elapsedTime.days === 1
+          ? ("habits.day" | translate)
+          : ("habits.days" | translate)
+      }}
     </div>
     <div class="text-sm text-text opacity-75">
       {{ elapsedTime.hours }}h {{ elapsedTime.minutes }}m
@@ -23,7 +27,7 @@
       (click)="onRelapse()"
       class="flex-1 bg-navbarInactive text-white py-2 px-4 rounded-lg font-medium hover:opacity-90 transition-all active:scale-95"
     >
-      Recaída
+      {{ "habits.relapseButton" | translate }}
     </button>
     <button
       (click)="onDelete()"

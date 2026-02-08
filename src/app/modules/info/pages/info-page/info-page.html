@@ -1,8 +1,10 @@
 <div class="p-6 max-w-4xl mx-auto space-y-8 animate-fade-in">
   <section class="text-center space-y-4">
-    <h2 class="text-3xl font-extrabold text-primary">Acerca de DayWithout</h2>
-    <p class="text-text ">
-      Tu compañero para construir mejores hábitos y mantener el enfoque.
+    <h2 class="text-3xl font-extrabold text-primary">
+      {{ "info.title" | translate }}
+    </h2>
+    <p class="text-text">
+      {{ "info.subtitle" | translate }}
     </p>
 
     @if (showInstallButton) {
@@ -24,7 +26,7 @@
             d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
           />
         </svg>
-        Instalar Aplicación
+        {{ "info.installButton" | translate }}
       </button>
     }
   </section>
@@ -50,16 +52,17 @@
           />
         </svg>
       </div>
-      <h3 class="text-xl font-bold text-center mb-2">Pomodoro</h3>
+      <h3 class="text-xl font-bold text-center mb-2">
+        {{ "info.pomodoro.title" | translate }}
+      </h3>
       <p class="text-sm text-text text-center">
-        Gestiona tu tiempo con la técnica Pomodoro. Trabaja en bloques de
-        enfoque y toma descansos para maximizar tu productividad sin agotarte.
+        {{ "info.pomodoro.description" | translate }}
       </p>
     </div>
 
     <!-- Habits Section -->
     <div
-      class="bg-containerDiv2  p-6 rounded-2xl shadow-md border hover:border-primary transition-colors"
+      class="bg-containerDiv2 p-6 rounded-2xl shadow-md border hover:border-primary transition-colors"
     >
       <div class="text-primary mb-4 flex justify-center">
         <svg
@@ -77,16 +80,17 @@
           />
         </svg>
       </div>
-      <h3 class="text-xl font-bold text-center mb-2">Hábitos</h3>
+      <h3 class="text-xl font-bold text-center mb-2">
+        {{ "info.habits.title" | translate }}
+      </h3>
       <p class="text-sm text-text text-center">
-        Rastrea tus días sin malos hábitos. Mantén la racha y visualiza tu
-        progreso día a día para mantenerte motivado.
+        {{ "info.habits.description" | translate }}
       </p>
     </div>
 
     <!-- MiniGames Section -->
     <div
-      class="bg-containerDiv2  p-6 rounded-2xl shadow-md border hover:border-primary transition-colors"
+      class="bg-containerDiv2 p-6 rounded-2xl shadow-md border hover:border-primary transition-colors"
     >
       <div class="text-primary mb-4 flex justify-center">
         <svg
@@ -104,10 +108,11 @@
           />
         </svg>
       </div>
-      <h3 class="text-xl font-bold text-center mb-2">MiniGames</h3>
+      <h3 class="text-xl font-bold text-center mb-2">
+        {{ "info.games.title" | translate }}
+      </h3>
       <p class="text-sm text-text text-center">
-        Distráete de la ansiedad con juegos rápidos y sencillos diseñados para
-        redirigir tu atención en momentos difíciles.
+        {{ "info.games.description" | translate }}
       </p>
     </div>
   </div>

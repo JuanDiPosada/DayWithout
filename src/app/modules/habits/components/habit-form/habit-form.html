@@ -1,6 +1,6 @@
 <div class="bg-containerDiv2 p-3 rounded-2xl shadow-md">
   <h2 class="text-2xl font-bold text-center mb-4 text-primary">
-    Crear WithOut
+    {{ "habits.createTitle" | translate }}
   </h2>
 
   <form (ngSubmit)="onSubmit()" class="flex gap-3">
@@ -8,7 +8,7 @@
       type="text"
       [(ngModel)]="habitName"
       name="habitName"
-      placeholder="Ej: Días sin fumar"
+      [placeholder]="'habits.placeholder' | translate"
       class="flex-1 px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-primary focus:outline-none transition-colors placeholder:text-text/50"
       maxlength="50"
     />
@@ -17,7 +17,7 @@
       [disabled]="!habitName.trim()"
       class="bg-green text-white px-6 py-3 rounded-lg font-bold hover:opacity-90 transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
     >
-      Crear
+      {{ "habits.createButton" | translate }}
     </button>
   </form>
 </div>
