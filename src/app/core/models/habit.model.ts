@@ -1,8 +1,6 @@
 export interface Habit {
   id: string;
   name: string;
-  description?: string;
-  createdAt: Date;
-  lastCompleted?: Date;
-  streak: number;
+  startDate: string; // ISO string for easy serialization
+  lastNotificationDate?: string; // ISO string
 }
