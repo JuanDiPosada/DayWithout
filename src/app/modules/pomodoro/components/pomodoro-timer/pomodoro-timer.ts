@@ -1,6 +1,10 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
+import {
+  TimerService,
+  TimerMode,
+} from '../../../../core/services/timer.service';
 
 interface PomodoroPreset {
   work: number;
@@ -15,7 +19,9 @@ interface PomodoroPreset {
   templateUrl: './pomodoro-timer.html',
   styleUrl: './pomodoro-timer.css',
 })
-export class PomodoroTimer implements OnDestroy {
+export class PomodoroTimer {
+  private timerService = inject(TimerService);
+
   // Configuración de los presets
   presets: PomodoroPreset[] = [
     { work: 25, break: 5, label: '25/5' },
@@ -25,117 +31,72 @@ export class PomodoroTimer implements OnDestroy {
   ];
 
   selectedPreset: PomodoroPreset = this.presets[0];
-  timeLeft: number = this.selectedPreset.work * 60;
-  isRunning = false;
-  mode: 'work' | 'break' = 'work'; // 'work' o 'break'
 
-  private timer: any;
-
-  ngOnDestroy(): void {
-    this.stopTimer();
-  }
+  // Observables from service
+  timeLeft$ = this.timerService.timeLeft$;
+  isRunning$ = this.timerService.isRunning$;
+  mode$ = this.timerService.mode$;
 
   // Iniciar el temporizador
   startTimer(): void {
-    if (this.isRunning) return;
-
-    // Solicitar permiso para notificaciones si no se ha otorgado aún
-    if (Notification.permission === 'default') {
-      Notification.requestPermission();
-    }
-
-    this.isRunning = true;
-    this.timer = setInterval(() => {
-      if (this.timeLeft > 0) {
-        this.timeLeft--;
-      } else {
-        // El tiempo terminó
-        this.playNotificationSound();
-        this.showNotification(); // Mostrar notificación web
-        this.switchMode();
-      }
-    }, 1000);
-  }
-
-  // ... (otros métodos)
-
-  private showNotification(): void {
-    const title =
-      this.mode === 'work' ? '¡Tiempo de descanso!' : '¡A trabajar!';
-    const body =
-      this.mode === 'work'
-        ? 'Has completado tu sesión de enfoque. Tómate un respiro.'
-        : 'El descanso ha terminado. Es hora de volver a enfocarse.';
-    const icon = '/favicon.ico';
-
-    if (Notification.permission === 'granted') {
-      // Intentar usar Service Worker para la notificación (mejor soporte móvil)
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.ready.then((registration) => {
-          registration.showNotification(title, { body, icon });
-        });
-      } else {
-        // Fallback para escritorio sin SW
-        new Notification(title, { body, icon });
-      }
-    }
+    const currentMode = this.getServiceMode();
+    const duration =
+      currentMode === 'work'
+        ? this.selectedPreset.work
+        : this.selectedPreset.break;
+    this.timerService.startTimer(duration, currentMode);
   }
 
   // Pausar el temporizador
   pauseTimer(): void {
-    this.isRunning = false;
-    clearInterval(this.timer);
+    this.timerService.pauseTimer();
+  }
+
+  // Resumir el temporizador
+  resumeTimer(): void {
+    this.timerService.resumeTimer();
   }
 
   // Detener y reiniciar el temporizador
   stopTimer(): void {
-    this.pauseTimer();
+    this.timerService.stopTimer();
     this.resetTimer();
   }
 
   // Reiniciar el tiempo al valor original del modo actual
   resetTimer(): void {
+    const currentMode = this.getServiceMode();
     const minutes =
-      this.mode === 'work'
+      currentMode === 'work'
         ? this.selectedPreset.work
         : this.selectedPreset.break;
-    this.timeLeft = minutes * 60;
+    this.timerService.resetTimer(minutes);
   }
 
   // Seleccionar un preset
   selectPreset(preset: PomodoroPreset): void {
     this.selectedPreset = preset;
-    this.mode = 'work'; // Siempre empezar en modo trabajo al cambiar preset
-    this.stopTimer();
+    this.timerService.stopTimer();
+    this.timerService.resetTimer(preset.work);
+    // Note: mode is implicitly reset to 'work' in some cases or we can force it
   }
 
-  // Cambiar entre modo trabajo y descanso automáticamente
-  switchMode(): void {
-    this.pauseTimer();
-    if (this.mode === 'work') {
-      this.mode = 'break';
-      this.timeLeft = this.selectedPreset.break * 60;
-    } else {
-      this.mode = 'work';
-      this.timeLeft = this.selectedPreset.work * 60;
-    }
-    // Opcional: Auto-start siguiente fase
-    // this.startTimer();
+  // Helper sync getter for mode (internal use)
+  private getServiceMode(): TimerMode {
+    let mode: TimerMode = 'work';
+    this.mode$.subscribe((m) => (mode = m)).unsubscribe();
+    return mode;
   }
 
   // Formatear segundos a MM:SS
-  get formatTime(): string {
-    const minutes = Math.floor(this.timeLeft / 60);
-    const seconds = this.timeLeft % 60;
+  formatTime(totalSeconds: number | null): string {
+    if (totalSeconds === null) return '00:00';
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
     return `${this.pad(minutes)}:${this.pad(seconds)}`;
   }
 
   private pad(val: number): string {
     return val < 10 ? `0${val}` : `${val}`;
-  }
-
-  private playNotificationSound(): void {
-    // Implementar sonido real aquí si se desea
-    console.log('Ding!');
   }
 }
